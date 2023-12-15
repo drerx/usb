@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="/gollum/assets/app-309be032396e783b13a47df58f389b7c8e11c2b2d42640560b874f677c25f6e5.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/gollum/assets/print-512498c368be0d3fb1ba105dfa84289ae48380ec9fcbef948bd4e23b0b095bfb.css" media="print">
+
+  
+  
+
+  <script>
+  var criticMarkup = '';
+	var baseUrl = '';
+  var showLocalTime = false;
+	var uploadDest = 'uploads';
+	var perPageUploads = '';
+	if (perPageUploads == 'true') {
+	  uploadDest = uploadDest + window.location.pathname.replace(/.*gollum\/[-\w]+\//, "/").replace(/\.[^/.]+$/, "").replace(baseUrl, "")
+	}
+	  var pageFullPath = 'CaptureSetup/Ethernet.md';
+    var pageFormat   = 'markdown';
+
+  </script>
+  <script src="/gollum/assets/app-e63ab45773141139cffcd04474f73c21042c7267568325d4e00775b4f9eaa022.js" type="text/javascript"></script>
+  
+
+  <title>Ethernet</title>
+</head>
+<body>
+<div class="container-lg clearfix">
+<div id="wiki-wrapper" class="page">
+<div id="head">
+	<div id=logo style="margin-top:1.5em"><a href="/"><img src="/assets/images/wsbadge@186x57.png"></a></div>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "23f11ed1fb144129b58c814beaa9870d"}'></script>
+<nav class="TableObject
+            actions
+            border-bottom
+            border-md-0
+            p-2
+            pt-lg-4
+            px-lg-0
+            overflow-x-scroll">
+  <div class="TableObject-item hide-lg hide-xl">
+    <details class="details-reset details-overlay">
+      <summary class="btn btn-invisible" aria-haspopup="true">
+        <span aria-label="Open menu">☰</span>
+      </summary>
+    
+      <div class="SelectMenu mx-sm-2">
+        <div class="SelectMenu-modal">
+          <div class="SelectMenu-divider py-3">
+            <h2 class="h6">Current Page</h2>
+            <div>Ethernet</div>
+          </div>
+    
+            <a
+              class="SelectMenu-item"
+              href="/gollum/history/CaptureSetup/Ethernet.md"
+              role="menuitem"
+            >
+              <span>History</span>
+            </a>
+    
+    
+          <div class="SelectMenu-divider py-3">
+            <h2 class="h6">Main Menu</h2>
+          </div>
+    
+          <div class="SelectMenu-list">
+            <a class="SelectMenu-item" role="menuitem" href="/">
+              Home
+            </a>
+    
+              <a class="SelectMenu-item" role="menuitem" href="/gollum/overview">
+                Overview
+              </a>
+    
+              <a
+                class="SelectMenu-item"
+                href="/gollum/latest_changes"
+                role="menuitem"
+              >
+                Latest Changes
+              </a>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="TableObject-item hide-sm hide-md">
+    <a class="btn btn-sm" id="minibutton-home" href="/">
+      Home
+    </a>
+  </div>
+
+  <div
+    class="TableObject-item TableObject-item--primary px-2"
+    
+  >
+    <form class="search-form" action="/gollum/search" method="get" id="search-form">
+    	<input type="text" class="form-control input-block" name="q" id="search-query" placeholder="Search" aria-label="Search site" autocomplete="off">
+    </form>  </div>
+
+  <div class="TableObject-item hide-sm hide-md">
+    <div class="BtnGroup d-flex">
+        <a
+          class="btn BtnGroup-item btn-sm"
+          href="/gollum/overview"
+          id="minibutton-overview"
+        >
+          Overview
+        </a>
+
+        <a
+          class="btn BtnGroup-item btn-sm"
+          href="/gollum/latest_changes"
+          id="minibutton-latest-changes"
+        >
+          Latest Changes
+        </a>
+    </div>
+  </div>
+
+  <div class="TableObject-item px-2">
+    <div class="BtnGroup d-flex">
+        <a
+          class="btn BtnGroup-item btn-sm hide-sm hide-md"
+          href="/gollum/history/CaptureSetup/Ethernet.md/"
+          id="minibutton-history"
+        >
+          History
+        </a>
+
+    </div>
+  </div>
+
+</nav>
+
+</div>
+
+<div id="wiki-content" class="px-2 px-lg-0">
+  <h1 class="header-title text-center text-md-left pt-4">
+    Ethernet
+  </h1>
+	<div class="breadcrumb"><nav aria-label="Breadcrumb"><ol>
+<li class="breadcrumb-item"><a href="/gollum/overview/CaptureSetup/">CaptureSetup</a></li>
+</ol></nav></div>
+
+	<div class="">
+	  <div id="wiki-body" class="gollum-markdown-content">
+	    <div class="main-content clearfix container-lg">
+	      <div class="markdown-body  " >
+	        
+	        <h1><a class="anchor" id="ethernet-capture-setup" href="#ethernet-capture-setup"></a>Ethernet capture setup</h1>
+
+<p>This page will explain points to think about when capturing packets from <a href="/Ethernet">Ethernet</a> networks.</p>
+
+<p>If you are only trying to capture network traffic between the machine running Wireshark or TShark and other machines on the network, you should be able to do this by capturing on the network interface through which the packets will be transmitted and received; no special setup should be necessary. (If you're trying to capture network traffic between processes running on the machine running Wireshark or TShark, i.e. network traffic from that machine to itself, you will need to capture on a loopback interface, if that's possible; see <a href="/CaptureSetup/Loopback">CaptureSetup/Loopback</a>.)</p>
+
+<p>If you're trying to capture network traffic that's <em>not</em> being sent to or from the machine running Wireshark or TShark, i.e. traffic between two or more other machines on an Ethernet segment, you will have to capture in "promiscuous mode", and, on a switched Ethernet network, you will have to set up the machine specially in order to capture that traffic. This is discussed below.</p>
+
+<p>See also Jasper Bongertz's <a href="https://blog.packet-foo.com/the-network-packet-capture-playbook/">Network Packet Capture Playbook</a>, which gives more details about Ethernet capture.</p>
+
+<h2><a class="anchor" id="table-of-contents" href="#table-of-contents"></a>Table of contents</h2>
+
+<p></p><div class="toc"><div class="toc-title">Table of Contents</div><ul><li><a href="#ethernet-capture-setup">Ethernet capture setup</a><ul><li><a href="#table-of-contents">Table of contents</a></li><li><a href="#packet-types">Packet Types</a></li><li><a href="#shared-ethernet">Shared Ethernet</a></li><li><a href="#switched-ethernet">Switched Ethernet</a><ul><li><a href="#capture-on-the-machine-you-re-interested-in">Capture on the machine you're interested in</a></li><li><a href="#capture-using-an-ethernet-hub">Capture using an Ethernet hub</a></li><li><a href="#capture-using-a-monitor-mode-of-the-switch">Capture using a monitor mode of the switch</a></li><li><a href="#capture-using-a-machine-in-the-middle">Capture using a machine-in-the-middle</a></li><li><a href="#capture-using-a-network-tap">Capture using a network tap</a></li><li><a href="#capture-using-a-mitm-man-in-the-middle-software">Capture using a MITM (Man-In-The-Middle) software</a></li><li><a href="#mac-flooding">MAC Flooding</a></li></ul></li><li><a href="#monitor-port-versus-network-tap">Monitor port versus network tap</a></li><li><a href="#sniffing-802-1q-vlan-tags">Sniffing 802.1Q VLAN tags</a></li><li><a href="#external-links">External Links</a></li><li><a href="#see-also">See Also</a></li></ul></li></ul></div>
+
+<h2><a class="anchor" id="packet-types" href="#packet-types"></a>Packet Types</h2>
+
+<p>The Ethernet hardware on the network adapter filters all packets received, and delivers to the host</p>
+
+<ul>
+  <li>
+    <p>all <a href="/Unicast">Unicast</a> packets that are being sent to one of the addresses for that adapter, i.e. packets sent to that host on that network;</p>
+  </li>
+  <li>
+    <p>all <a href="/Multicast">Multicast</a> packets that are being sent to a <a href="/Multicast">Multicast</a> address for that adapter, or all <a href="/Multicast">Multicast</a> packets regardless of the address to which they're being sent (some network adapters can be configured to accept packets for specific <a href="/Multicast">Multicast</a> addresses, others deliver all multicast packets to the host for it to filter);</p>
+  </li>
+  <li>
+    <p>all <a href="/Broadcast">Broadcast</a> packets.</p>
+  </li>
+</ul>
+
+<p>The driver for the adapter will also send copies of transmitted packets to the packet capture mechanism, so that they will be seen by a capture program as well.</p>
+
+<p>In order to capture Ethernet traffic other than <a href="/Unicast">Unicast</a> traffic to and from the host on which you're running Wireshark, <a href="/Multicast">Multicast</a> traffic, and <a href="/Broadcast">Broadcast</a> traffic, the adapter will have to be put into promiscuous mode, so that the filter mentioned above is switched off and all packets received are delivered to the host.</p>
+
+<p>In addition, if you are on a switched Ethernet, rather than a shared Ethernet, you will also have to take action to ensure that all traffic in which you're interested is sent to the Ethernet adapter on the machine running the packet capture program; that is not, by default, the case on switched networks, so attempts to capture on a switched network will, by default, see only traffic that the capturing machine would see when not in promiscuous mode. Details on shared and switched Ethernet can be found below.</p>
+
+<h2><a class="anchor" id="shared-ethernet" href="#shared-ethernet"></a>Shared Ethernet</h2>
+
+<p>In the old days, Ethernet networks were shared networks, using shared media or hubs to connect the Ethernet nodes together, meaning all packets could be received by all nodes on that network. Therefore, if an Ethernet adapter on such a network is put into promiscuous mode, all packets on the network will be seen by that adapter and thus can be captured with that adapter.</p>
+
+<p><img src="/uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-shared-hub-ws.png" alt="Capture-shared-hub-ws.png" title="Capture-shared-hub-ws.png" /></p>
+
+<p>Today, shared networks are becoming popular again, as WLAN's are using this technique. You might have a look at <a href="/CaptureSetup/WLAN">CaptureSetup/WLAN</a> for details.</p>
+
+<h2><a class="anchor" id="switched-ethernet" href="#switched-ethernet"></a>Switched Ethernet</h2>
+
+<p>Today, a typical Ethernet network will use switches to connect the Ethernet nodes together. This can increase network performance a lot, but makes life much harder when capturing packets.</p>
+
+<p>An Ethernet switch will do a similar thing to the Ethernet adapter hardware mentioned above, but inside the switch. It can infer, from traffic seen on a switch port, what <a href="/Unicast">Unicast</a> address or addresses are used by the adapter connected to that port, and will forward to that port only <a href="/Unicast">Unicast</a> traffic sent to that address or addresses, as well as all <a href="/Multicast">Multicast</a> and <a href="/Broadcast">Broadcast</a> packets on the network.</p>
+
+<p>As <a href="/Unicast">Unicast</a> packets not sent to that host will not be put on the switch port to which that host's adapter is connected, that adapter will not have those packets, so putting the adapter into promiscuous mode can't cause it to deliver packets to that host, and you won't see those packets even if you capture in promiscuous mode.</p>
+
+<p><img src="/uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-problem-ws.png" alt="Capture-switch-problem-ws.png" title="Capture-switch-problem-ws.png" /></p>
+
+<p>The following will describe some methods to circumvent this problem.</p>
+
+<h3><a class="anchor" id="capture-on-the-machine-you-re-interested-in" href="#capture-on-the-machine-you-re-interested-in"></a>Capture on the machine you're interested in</h3>
+
+<p>If you only need the capture data from a specific host, try to capture on that machine.</p>
+
+<p><img src="/uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-same-computer-ws.png" alt="Capture-switch-same-computer-ws.png" title="Capture-switch-same-computer-ws.png" /></p>
+
+<ul>
+  <li>Advantage: Easy to use</li>
+  <li>Disadvantage: Other traffic not available</li>
+</ul>
+
+<h3><a class="anchor" id="capture-using-an-ethernet-hub" href="#capture-using-an-ethernet-hub"></a>Capture using an Ethernet hub</h3>
+
+<p>If you have an "old" Ethernet hub available, put it inside the Ethernet line you want to capture from. This could be the line between a switch and a node or between two switches.</p>
+
+<p><img src="/uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-hub-ws.png" alt="Capture-switch-hub-ws.png" title="Capture-switch-hub-ws.png" /></p>
+
+<p>Beware that this will interrupt network traffic while you plug the cables!</p>
+
+<p>This method can/will affect network performance, if you are using <a href="/EthernetFullDuplex">EthernetFullDuplex</a> mode. This is not optimal for network troubleshooting.</p>
+
+<p>Note that some "hubs" are actually "switching hubs", which are switches rather than "old" hubs, and won't help in this case, and that "dual-speed" (10/100Mb) hubs don't forward unicast traffic between 10Mb/s and 100 Mb/s ports, requiring the capturing machine to run its Ethernet at the same speed as the machines whose traffic it's trying to capture.</p>
+
+<ul>
+  <li>
+    <p>Advantage: Often such a hub is available</p>
+  </li>
+  <li>
+    <p>Disadvantage: Those hubs can be hard to find (so often they're <em>not</em> available), will affect <a href="/EthernetFullDuplex">EthernetFullDuplex</a> traffic</p>
+  </li>
+</ul>
+
+<p>See the <a href="/HubReference">HubReference</a> for information on "real" hubs.</p>
+
+<h3><a class="anchor" id="capture-using-a-monitor-mode-of-the-switch" href="#capture-using-a-monitor-mode-of-the-switch"></a>Capture using a monitor mode of the switch</h3>
+
+<p>Some Ethernet switches (usually called "managed switches") have a monitor mode. Managed switches have been expensive in the past, but some models can now be found for less than $100. This monitor mode can dedicate a port to connect your (Wireshark) capturing device. It's sometimes called 'port mirroring', 'port monitoring', 'Roving Analysis' (3Com), or 'Switched Port Analyzer' or 'SPAN' (Cisco). Using the switch management, you can select both the monitoring port and assign a specific port you wish to monitor. Actual procedures vary between switch models; you may need to use a terminal emulator, specialized SNMP client software or (more recently) a Web browser. Caution: the monitoring port must be at least as fast as the monitored port, or you will certainly lose packets.</p>
+
+<p>Note that some switches might not support monitoring <em>all</em> traffic passing through the switch, only traffic on a particular port. On those switches, you might not be able to capture all traffic on the network, only traffic sent to or from some particular machine on the switch.</p>
+
+<p>While high-end managed switches (like e.g. Cisco Catalyst) usually fully dedicate a monitoring port to the task, i.e. such port can only be used to deliver the monitored traffic to a capturing device and its ingress direction is muted (or only enabled for injection of TCP reset packets by a security device, so it is not learning the source MAC addresses of the received frames), some low-end models keep the monitoring port fully operational and just add the frames mirrored from the monitored port(s) to its egress direction, making the behaviour similar to one of a hub except that the link speed may be up to 1 Gbit/s and the device is actively sold. An example of this kind of monitoring switches is Netgear's GS105E, currently available for less than $50.</p>
+
+<p>Rumor has it that some switches can monitor the whole throughput of the switch. As a switch can transfer more traffic than a single line can transmit, you will be unlikely to see all traffic.</p>
+
+<p><img src="/uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-monitor-port-ws.png" alt="Capture-switch-monitor-port-ws.png" title="Capture-switch-monitor-port-ws.png" /></p>
+
+<ul>
+  <li>Advantage: Easy to use if such a switch available</li>
+  <li>Disadvantage: More expensive switch needed (though not as expensive as they once were), capture packet loss at high traffic</li>
+</ul>
+
+<p>See the <a href="/SwitchReference">SwitchReference</a> for details about specific switch models.</p>
+
+<h3><a class="anchor" id="capture-using-a-machine-in-the-middle" href="#capture-using-a-machine-in-the-middle"></a>Capture using a machine-in-the-middle</h3>
+
+<p>A machine with two network interface cards (NICs) can be used as a transparent bridge, capturing all the traffic to and from a single machine or a network segment. Under Linux, brctl (brcfg on older systems) can be used; under the BSD family, brconfig. Apparently, Windows XP and Server 2003 also allow bridging configurations to be built; it may well prove harder to make a Windows installation 'quiet' in network traffic terms than Unix.</p>
+
+<p>Running Wireshark on just one of the NICs is enough to capture all the traffic.</p>
+
+<p>Many laptops have one network adapter built-in; a second can be added using a PC card. Desktop machines are easily fitted with additional NICs.</p>
+
+<p>The bridge is 'transparent' at the level of IP and similar protocols, and 'almost' transparent at the Ethernet level - it creates a small delay in packet transmission, and the Ethernet addresses of the two NICs may respond to some broadcast messages.</p>
+
+<p><img src="/uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-mitm-2NIC-ws.png" alt="Capture-switch-mitm-2NIC-ws.png" title="Capture-switch-mitm-2NIC-ws.png" /></p>
+
+<ul>
+  <li>Advantage: requires no changes to monitored host, uses only generally available hardware</li>
+  <li>Disadvantage: dedicated machine configuration required</li>
+</ul>
+
+<h3><a class="anchor" id="capture-using-a-network-tap" href="#capture-using-a-network-tap"></a>Capture using a network tap</h3>
+
+<p>Several vendors offer network taps, which can be plugged into a line. There are different types of taps, such as breakout taps, aggregation taps, replicating taps, bypass taps and media changing taps. For a nice explanation of each type, see <a href="https://www.garlandtechnology.com/2014/01/17/a-test-access-point-tap-primer">The 101 Series: A Primer On Network TAPs</a>.</p>
+
+<p>Breakout taps will have four connectors: two for the existing line and two outputs for both directions of the <a href="/EthernetFullDuplex">EthernetFullDuplex</a> traffic.</p>
+
+<p><img src="/uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-tap-ws.png" alt="Capture-switch-tap-ws.png" title="Capture-switch-tap-ws.png" /></p>
+
+<p>To use breakout taps, you have to capture both outputs. Prior to version 1.8 Wireshark cannot capture from two interfaces at once, so for those versions you have to start two Wireshark instances for capturing and merge the resulting capture files together.</p>
+
+<p>On most Unix systems, including Red Hat, two Ethernet ports can be bonded, and Wireshark can use the bonded interface. This prevents having to run two instances of Wireshark and merging them together. For more information, check on "bonding", "trunking", or (less desirably) "bridging" for your OS type.</p>
+
+<ul>
+  <li>
+    <p>Advantage: All packets of <a href="/EthernetFullDuplex">EthernetFullDuplex</a> traffic can be captured, won't affect Ethernet traffic</p>
+  </li>
+  <li>
+    <p>Disadvantage: Costly, uncomfortable to work with (unless your version of Wireshark is able to capture from multiple interfaces)</p>
+  </li>
+</ul>
+
+<p>See <a href="http://www.winsnort.com/tutorials/article/12-how-to-create-and-install-a-passive-ethernet-tap/">Construction and Use of a Passive Ethernet Tap</a> from the Snort webpage how to build a DIY tap. You can purchase network taps from simple passive ones at the size of a cigarette packet to 19" rack mounted multiple line taps which support SNMP monitoring and redundant power supply.</p>
+
+<p>See the <a href="/TapReference">TapReference</a> for information about various tap hardware.</p>
+
+<p>Be sure to test the power up and power down of taps. Some taps are completely transparent when they power down, but can take up to (approx) two seconds for it to power up (so for two seconds, no packets make it through).</p>
+
+<p>Some other links on how to build a DIY network tap:</p>
+
+<ul>
+  <li>
+    <p><a href="http://writequit.org/blog/?p=149">Create a passive network tap for your home network</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.enigmacurry.com/category/diy/">Building an Ethernet Tap</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.muratscscorner.com/2011/05/building-passive-hub.html">Building a Passive Hub</a></p>
+  </li>
+  <li>
+    <p><a href="http://ossmann.blogspot.com/2011/02/throwing-star-lan-tap.html">DIY "Throwing star" Network Tap</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.instructables.com/id/Make-a-Passive-Network-Tap/">Make a Passive Network Tap</a></p>
+  </li>
+</ul>
+
+<p>Concerning the DIY taps compared to the expensive professional taps for sale, it has been argued that…</p>
+
+<p>The differing number of twists per inch in each pair of wires (which is why each pair always reads different lengths when you apply something like a Fluke meter to the 4-pair cable) is what gives data- grade cables its basic resistance to RF interference for unshielded twisted pair (the shield provides additional protection for shielded twisted pair). If you untwist them beyond the 0.5" at the ends allowed by specifications, you're basically removing all such resistance to RF interference and introducing additional issues such as retransmissions, etc., that would skew your readings.</p>
+
+<h3><a class="anchor" id="capture-using-a-mitm-man-in-the-middle-software" href="#capture-using-a-mitm-man-in-the-middle-software"></a>Capture using a MITM (Man-In-The-Middle) software</h3>
+
+<p>To capture packets going between two computers on a switched network, you can use a MITM attack (ARP Poisoning). This type of attack will fool the two computers into thinking that your MAC address is the MAC address of the other machine. This will in turn make the switch route all of their traffic to your computer where you can sniff it and then send the traffic along as if nothing ever happened. This type of attack can cause havoc on some switches and LANs so use it carefully.</p>
+
+<p><img src="/uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-mitm-ws.png" alt="Capture-switch-mitm-ws.png" title="Capture-switch-mitm-ws.png" /></p>
+
+<p><img src="/gollum/emoji/warning" alt="warning" class="emoji" /> <strong>Please do not try this on any LAN other than your own!</strong></p>
+
+<ul>
+  <li>Advantage: Cheap</li>
+  <li>Disadvantage: Can confuse switches, capture packet loss at high traffic</li>
+</ul>
+
+<p>See <a href="http://thevega.blogspot.com/2008_06_01_archive.html">What is ARP Poisoning ?</a> for more info.</p>
+
+<h3><a class="anchor" id="mac-flooding" href="#mac-flooding"></a>MAC Flooding</h3>
+
+<p>Switches keep a translation table that maps various MAC addresses to the physical ports on the switch. As a result of this, a switch can intelligently route packets from one host to another, but it has a limited memory for this work. MAC flooding makes use of this limitation to bombard the switch with fake MAC addresses until the switch can't keep up. The switch then enters into what is known as a `failopen mode', wherein it starts acting as a hub by broadcasting packets to all the machines on the network. Once that happens sniffing can be performed easily. MAC flooding can be performed by using macof, a utility which comes with the <a href="http://www.monkey.org/~dugsong/dsniff/">dsniff</a> suite.</p>
+
+<p><img src="/uploads/__moin_import__/attachments/CaptureSetup/Ethernet/Capture-switch-mac-flooding-ws.png" alt="Capture-switch-mac-flooding-ws.png" title="Capture-switch-mac-flooding-ws.png" /></p>
+
+<p><img src="/gollum/emoji/warning" alt="warning" class="emoji" /> <strong>Please do not try this on any LAN other than your own!</strong></p>
+
+<ul>
+  <li>
+    <p>Advantage: Cheap</p>
+  </li>
+  <li>
+    <p>Disadvantage: Will affect <a href="/EthernetFullDuplex">EthernetFullDuplex</a> traffic, capture packet loss at high traffic</p>
+  </li>
+</ul>
+
+<h2><a class="anchor" id="monitor-port-versus-network-tap" href="#monitor-port-versus-network-tap"></a>Monitor port versus network tap</h2>
+
+<p>Some arguments for using a passive network tap rather than a monitor port (port mirroring, SPAN, etc.) (see sections above) to do the sniffing:</p>
+
+<ol>
+  <li>
+    <p>Monitor ports do not pass bad frames, long or short frames or any malformed packets – Thus no baseline studies</p>
+  </li>
+  <li>
+    <p>Monitor ports do not pass VLAN tags – Result you do not know which VLAN a frame came from and also can result in the same packet being presented twice or more.</p>
+  </li>
+  <li>
+    <p>Monitor ports change timing – thus if you are doing any RTP studies, or timing studies, no jitter and differentiated timing.</p>
+  </li>
+  <li>
+    <p>Maybe a switch can handle switching, which it was made for but monitor ports are not the priority of a switch and thus issues.</p>
+  </li>
+  <li>
+    <p>All your math is great and proves that switches can handle their job but replication is the lowest priority.</p>
+  </li>
+  <li>
+    <p>Myself and others have tested several switches (to 10G) cheap to the best and found much variation…even the Mfr’s support the findings.</p>
+  </li>
+  <li>
+    <p>I do not even want to discuss RSPAN another whole can of issues.</p>
+  </li>
+  <li>
+    <p>Monitor ports are acceptable for connection studies.</p>
+  </li>
+  <li>
+    <p>Monitor ports are <strong>not</strong> acceptable for <a href="http://en.wikipedia.org/wiki/Communications_Assistance_for_Law_Enforcement_Act">CALEA</a> access and possibly for similar forms of law enforcement surveillance.</p>
+  </li>
+  <li>
+    <p>Monitor ports are <strong>not</strong> acceptable for Compliance or Audit studies.</p>
+  </li>
+  <li>
+    <p>Monitor port capture files can cause issues in court cases, reasonable doubt issues.</p>
+  </li>
+</ol>
+
+<p>See also:</p>
+
+<ul>
+  <li>
+<a href="http://www.lovemytool.com/blog/2007/08/span-ports-or-t.html">SPAN Port or TAP? CSO Beware</a> (by Tim O’Neill)</li>
+</ul>
+
+<p>On the other hand, it has been argued that…</p>
+
+<p>Point 2:</p>
+
+<ul>
+  <li>Monitor ports do not pass VLAN tags</li>
+</ul>
+
+<p>is not generally true, since on many existing switches, it can be configured to mirror also the VLAN tags. (E.g. Cisco: configure the span port as a trunk).</p>
+
+<p>All port-mirroring (or VLAN mirroring for that matter) these days is built into the switch ASICs. It will be either a hardware assisted copy of the packet buffer or even better just a copy of the pointer to the same buffer. Latency will be in measured in micro-seconds - and if fact be no different from the standard switching/routing operation.</p>
+
+<p>Obviously if you are mirroring a duplex link you effectively are converting to a half-duplex stream. So if you are mirroring a port say with 500Mbps outbound (TX) and 500Mbps inbound (RX) that is going to become a 1Gbps outbound (TX only) stream on the monitoring port. So I agree there will be some shifting of packets as they are being interleaved. But for the most part is going to only a single packet delay. For a full sized 9000 byte jumbo frame at 1Gbps this interleaving delay is only going to be 72 microseconds (9000*8/10^9). I don't believe there is any one that is going to require a analyze jitter or delay at any thing better than 1 millisecond, which is 10 times this packet delay. (I know there are some stock trading floor applications that are pretty time critical but I doubt delays less than a millisecond are going to be important).</p>
+
+<p>So I would say for the 99% of people and applications port-mirroring is going to be better. You have a lot of a flexibility in being able to turn it on and off with no disruption to the production traffic. You can often mirror 1 or many ports and even whole or multiple VLANs, as well as allowing remote monitoring in some circumstances. Taps either need to be installed during an outage and left in-situ until a further outage can be arranged. Also the taps that I have used require two Ethernet ports for monitoring as a tap separates out RX and TX traffic. This probably has the same potential interleaving issues in the Wireshark or other sniffer that the port-mirroring will have.</p>
+
+<h2><a class="anchor" id="sniffing-802-1q-vlan-tags" href="#sniffing-802-1q-vlan-tags"></a>Sniffing 802.1Q VLAN tags</h2>
+
+<p>When Wireshark does not display 802.1Q VLAN tags…</p>
+
+<p>It might be that the network switch is stripping off the tags on the mirroring port. Check the switch configuration.</p>
+
+<p>In addition, many network adapters strip off the VLAN tag by default after receiving a packet. See <a href="/CaptureSetup/VLAN">CaptureSetup/VLAN</a> for information on configuring network adapters not to do so.</p>
+
+<h2><a class="anchor" id="external-links" href="#external-links"></a>External Links</h2>
+
+<ul>
+  <li>
+    <p><a href="http://www.linuxjournal.com/article.php?sid=5869">SwitchSniff</a> article on <a href="http://www.linuxjournal.com">Linux Journal</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.askapache.com/security/sniffing-on-ethernet-undetected.html">Sniffing On Ethernet Undetected</a> article on <a href="http://www.askapache.com">askApache</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.linuxjournal.com/node/6222">Stealthful Sniffing, Intrusion Detection and Logging</a> article on <a href="http://www.linuxjournal.com">Linux Journal</a></p>
+  </li>
+  <li>
+    <p><a href="http://antionline.com/showthread.php?t=233915">Stealthful Sniffing, Intrusion Detection and Logging Discussion</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.linuxjournal.com/article/5201">In Search of a Sniffer</a> article on <a href="http://www.linuxjournal.com">Linux Journal</a></p>
+  </li>
+</ul>
+
+<h2><a class="anchor" id="see-also" href="#see-also"></a>See Also</h2>
+
+<ul>
+  <li>
+    <p><a href="/CaptureSetup/WLAN">Capturing on 802.11 Wireless Networks</a></p>
+  </li>
+  <li>
+    <p><a href="/CaptureSetup/TokenRing">Capturing on Token Ring Networks</a></p>
+  </li>
+  <li>
+    <p><a href="/CaptureSetup/VLAN">Capturing on VLAN Protected Networks</a></p>
+  </li>
+  <li>
+    <p><a href="/CaptureSetup/PPP">Capturing on PPP Networks</a></p>
+  </li>
+  <li>
+    <p><a href="/CaptureSetup/Loopback">Capturing on the Loopback Device</a></p>
+  </li>
+  <li>
+    <p><a href="/CaptureSetup/FrameRelay">Capturing on Frame Relay Networks</a></p>
+  </li>
+  <li>
+    <p><a href="/CaptureSetup/DOCSIS">Capturing DOCSIS Traffic</a></p>
+  </li>
+  <li>
+    <p><a href="/CaptureSetup/Bluetooth">Capturing Bluetooth Traffic</a></p>
+  </li>
+  <li>
+    <p><a href="/CaptureSetup/ATM">Capturing on ATM Networks</a></p>
+  </li>
+  <li>
+    <p><a href="/CaptureSetup/USB">Capturing USB Traffic</a></p>
+  </li>
+  <li>
+    <p><a href="/CaptureSetup/IrDA">Capturing IrDA Traffic</a></p>
+  </li>
+  <li>
+    <p><a href="/CaptureSetup/CiscoHDLC">Capturing on Cisco HDLC Networks</a></p>
+  </li>
+  <li>
+    <p><a href="/CaptureSetup/SS7">Capturing SS7 Traffic</a></p>
+  </li>
+</ul>
+
+<hr />
+
+<hr />
+
+<p>Imported from https://wiki.wireshark.org/CaptureSetup/Ethernet on 2020-08-11 23:11:53 UTC</p>
+
+	      </div>
+	    </div>
+	  </div>
+
+
+	</div>
+
+
+	<div id="footer" class="pt-4">
+		  <p id="last-edit"><div class="dotted-spinner hidden"></div> <a id="page-info-toggle" data-pagepath="CaptureSetup/Ethernet.md">When was this page last modified?</a></p>
+	</div>
+
+
+</div>
+
+<form name="rename" method="POST" action="/gollum/rename/CaptureSetup/Ethernet.md">
+  <input type="hidden" name="rename"/>
+  <input type="hidden" name="message"/>
+</form>
+
+</div>
+</div>
+</body>
+</html>

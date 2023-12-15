@@ -1,0 +1,21 @@
+How can I setup Wireshark to capture http traffic on my Andriod? Thanks in advance.
+
+You can't, as your router will not send the traffic from your android phone to your PC. What you have seen (ARP, DHCP, etc.) is just broadcast traffic, which will be broadcasted to the network.
+
+UPDATE:
+
+If you want to capture the traffic of your android phone you have these options:
+
+capture the wifi/wlan traffic on your PC. However, that requires a WLAN NIC in your PC and most certainly you must run the PC with linux to be able to operate the WLAN NIC in monitor mode. Monitor mode on Windows depends on the NIC driver and is only supported with a few WLAN NICs on Windows 7 (NDIS6 compatible driver).
+
+http://wiki.wireshark.org/CaptureSetup/WLAN
+Figure out if your router is able to mirror traffic from the WLAN interface to the LAN interface. Search the docs for something like "port mirror" or "port mirroring". If that option is available, mirror the whole WLAN traffic to the LAN interface, where your PC is connected to. Then run Wireshark on the PC.
+Place a switch with port mirroring capabilities between your router and the "Internet" (presumably between the DSL modem and the router). Then mirror the whole traffic from the router interface to another port on that switch and connect your PC to that port. See the following wiki entry.
+http://wiki.wireshark.org/CaptureSetup/Ethernet
+Add a second ethernet NIC to your PC and configure a bridge. Then place your PC between the router and the DSL modem (or DSL router). Capture the traffic on your PC on any of the two bridged interfaces.
+
+
+How to create a Network Bridge on Windows 10
+Use the Windows key + X to open the Power User menu and select Network Connections.
+Select both, the network adapter that connects to the internet and the adapter you want to use in the bridge connection.
+Right-click the selection and click Bridge Connections.
